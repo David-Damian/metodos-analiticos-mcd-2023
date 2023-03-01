@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Ejemplo: Fertilidad en Bangladesh</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="tarea-06_files/libs/clipboard/clipboard.min.js"></script>
+<script src="tarea-06_files/libs/quarto-html/quarto.js"></script>
+<script src="tarea-06_files/libs/quarto-html/popper.min.js"></script>
+<script src="tarea-06_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="tarea-06_files/libs/quarto-html/anchor.min.js"></script>
+<link href="tarea-06_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="tarea-06_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="tarea-06_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="tarea-06_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="tarea-06_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="tarea-06_files/libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
+<script src="tarea-06_files/libs/viz-1.8.2/viz.js"></script>
+<link href="tarea-06_files/libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="tarea-06_files/libs/grViz-binding-1.0.9/grViz.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Ejemplo: Fertilidad en Bangladesh</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="propuesta-de-estructura-de-modelo-causal" class="level2">
+<h2 class="anchored" data-anchor-id="propuesta-de-estructura-de-modelo-causal">Propuesta de estructura de modelo causal</h2>
+<p>Estos ejercicio es tomado de Statistical Rethinking (McElreath). Pueden verlo explicado por McElreath en https://www.youtube.com/watch?v=sgqMkZeslxA&amp;t=1101s (aunque les sugiero leer primero esta tarea).</p>
+<div class="cell">
+
+</div>
+<div class="cell">
+
+</div>
+<p>En este ejemplo consideramos una encuesta de fertilidad en Bangladesh en 1988.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(bangladesh_tbl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "woman"             "district"          "use.contraception"
+[4] "living.children"   "age.centered"      "urban"            </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(bangladesh_tbl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1934</code></pre>
+</div>
+</div>
+<p>Estos datos están a nivel individuo. Las variables son</p>
+<ol type="1">
+<li>Distrito de Bangladesh donde vive la persona (D)</li>
+<li>Uso de métodos de anticoncepción (Ac)</li>
+<li>Número de hijos vivos (H)</li>
+<li>Edad centrada en media (Edad)</li>
+<li>Indicadora de población urbano (vs rural) (Ur)</li>
+</ol>
+<p>Nos interesa principalmente como resultado el uso de anticonceptivos. Veremos cómo construir un primer diagrama causal para explicar nuestros supuestos acerca de estos datos.</p>
+<p>En primer lugar, dibujamos los efectos que nos interesa describir. Por ejemplo, edad y número de hijos vivos, o distrito urbano, los cuales todos influyen en el uso de anticonceptivos:</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grViz</span>(<span class="st">'</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="st">digraph {</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="st">  graph [ranksep = 0.2, rankdir = LR]</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="st">    node [shape=plaintext]</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="st">    D</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="st">    edge [minlen = 3]</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="st">    Edad -&gt; Ac</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="st">    Ur -&gt; Ac</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="st">    H -&gt; Ac</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="st">    D -&gt; Ac</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="st">}'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-9752ff5cb184bebb53de" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-9752ff5cb184bebb53de">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2, rankdir = LR]\n    node [shape=plaintext]\n    D\n    edge [minlen = 3]\n    Edad -> Ac\n    Ur -> Ac\n    H -> Ac\n    D -> Ac\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>Ahora consideramos distrito. Distintos distritos tienen más o menos poblaciones urbanas, y distintas costumbres, así que también lo consideramos causa de uso de anticonceptivos, número de hijos y urbanización (pero no edad, que no tiene causas). Variables de agrupación de personas u observaciones como “distrito” típicamente actúan sobre varias variables de nuestro sistema, pues los distintos grupos tienen distintas características:</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grViz</span>(<span class="st">'</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="st">digraph {</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="st">  graph [ranksep = 0.2, rankdir = LR]</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="st">    node [shape=plaintext]</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="st">    D</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="st">    edge [minlen = 3]</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="st">    D -&gt; Ac</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="st">    D -&gt; Ur</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="st">    D -&gt; H</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="st">    Edad -&gt; Ac</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="st">    Ur -&gt; Ac</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="st">    H -&gt; Ac</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="st">}'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-6a76288b6fac49289920" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-6a76288b6fac49289920">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2, rankdir = LR]\n    node [shape=plaintext]\n    D\n    edge [minlen = 3]\n    D -> Ac\n    D -> Ur\n    D -> H\n    Edad -> Ac\n    Ur -> Ac\n    H -> Ac\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>Ahora consideremos relaciones causales adicionales:</p>
+<ul>
+<li>Claramente, edad es causa de número de hijos (edades más grandes tienen posibilidades de tener más hijos).</li>
+<li>Es posible que urbanización también tenga un efecto directo sobre el número de hijos que cada mujer tiene.</li>
+</ul>
+<p>Así que nos quedamos con el diagrama:</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grViz</span>(<span class="st">'</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="st">digraph {</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="st">  graph [ranksep = 0.2, rankdir = LR]</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="st">    node [shape=plaintext]</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="st">    D</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="st">    edge [minlen = 3]</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="st">    D -&gt; Ac</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="st">    D -&gt; Ur</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="st">    D -&gt; H</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="st">    Edad -&gt; Ac</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="st">    Ur -&gt; Ac</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="st">    Ur -&gt; H</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="st">    H -&gt; Ac</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="st">    Edad -&gt; H</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="st">}'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-ad0653067a3f508a5a51" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-ad0653067a3f508a5a51">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2, rankdir = LR]\n    node [shape=plaintext]\n    D\n    edge [minlen = 3]\n    D -> Ac\n    D -> Ur\n    D -> H\n    Edad -> Ac\n    Ur -> Ac\n    Ur -> H\n    H -> Ac\n    Edad -> H\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>Este es un primer enfoque. Podemos también pensar en variables no medidas: por ejemplo, puede haber causas comunes que van a número de hijos y uso de anticonceptivos (efecto de la familia: quizá hay algunas que prefieren tener más hijos y usan menos anticonceptivos, y otras al contrario). Discutiremos esto más adelante</p>
+<p>Consideremos ahora una primera pregunta:</p>
+<ul>
+<li>¿Cómo afecta el estado de urbanización al uso de anticonceptivos?</li>
+</ul>
+<p><strong>Pregunta 1</strong>. ¿Qué puertas traseras hay del tratamiento (Ur) al resultado Ac? ¿Es posible bloquearlas? ¿Qué modelo necesitamos estimar para identificar el efecto total de Ur sobre Ac según el criterio de puerta trasera?</p>
+<p><strong>Respuesta</strong>:</p>
+<p>Recordar que un conjunto de variables <span class="math inline">\(Z\)</span> tastifacen el criterio de puerta trasera si</p>
+<p>Distrito y edad (pues ambas inciden en T y no son descendientes de ella)</p>
+<p>Para estimar el efecto total de Ur sobre Ac, estimamos el modelo dado por la gráfica</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grViz</span>(<span class="st">'</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="st">digraph {</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="st">  graph [ranksep = 0.2, rankdir = LR]</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="st">    node [shape=plaintext]</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="st">    D</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="st">    edge [minlen = 3]</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="st">    D </span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="st">    Edad </span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="st">    Ur -&gt; Ac</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="st">    Ur -&gt; H</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="st">    H -&gt; Ac</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="st">}'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-708c5edb0a9d483bbece" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-708c5edb0a9d483bbece">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2, rankdir = LR]\n    node [shape=plaintext]\n    D\n    edge [minlen = 3]\n    D \n    Edad \n    Ur -> Ac\n    Ur -> H\n    H -> Ac\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>i.e, calculamos:</p>
+<p><span class="math display">\[
+P(Ac\mid do(Ur=u))=\int_D P(Ac\mid X=x, D=d, Edad=e)P(D=d)
+\]</span></p>
+<p><strong>Pregunta 2</strong>: ¿Cuáles son las rutas causales de Ur a Ac según nuestro diagrama? (tip: hay dos). Intenta explicar con razones cómo podrían funcionar esas rutas.</p>
+<p><strong>Respuesta</strong>: Son <span class="math inline">\(Ur \to H\to Ac\)</span> y <span class="math inline">\(Ur\to Ac\)</span></p>
+</section>
+<section id="modelo-inicial" class="level2">
+<h2 class="anchored" data-anchor-id="modelo-inicial">Modelo inicial</h2>
+<p>De tus respuestas de las preguntas anteriores se debe deducir que es necesario condicionar a distrito, y eso implica que construiremos un modelo para uso de anticonceptivos en término de distrito y (fórmula de puerta trasera).</p>
+<p>La variable <span class="math inline">\(Ac\)</span> es 0 o 1, así que usaremos una regresión logística. En este caso, utilizaremos un modelo jerárquico, pues el número de personas por distrito en la encuesta tiene mucha variación. Este tipo de modelos ya los has visto o los verás en Modelación Bayesiana / Modelos lineales generalizados, y no es el punto importante de este ejercicio. <strong>Si te confunde el código del modelo puedes pensar provisionalmente que ajustamos un modelo distinto para cada distrito</strong>.</p>
+<p><strong>Pregunta 3</strong> (opcional, si ya viste modelos jerárquicos): Calcula cuántas mujeres hay en cada distrito para esta encuesta. Explica por qué no utilizar un modelo jerárquico para los parámetros a nivel distrito no es buena idea (la alternativa es modelar por separado cada parámetro a nivel de distrito, como “efectos fijos”).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mod_ur <span class="ot">&lt;-</span> <span class="fu">cmdstan_model</span>(<span class="st">"bangladesh-1.stan"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mod_ur)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>data {
+  int&lt;lower=0&gt; N; //número de individuos
+  int&lt;lower=0&gt; d; //número distritos
+  array[N] int&lt;lower=0&gt; y; // uso de anticonceptivos
+  array[N] int&lt;lower=0&gt; distrito; //distrito de cada observación
+  array[N] int&lt;lower=0&gt; ur; // status de urbano = 1
+  
+}
+parameters {
+  real&lt;lower=0&gt; sigma_alpha;
+  real&lt;lower=0&gt; sigma_beta;
+  array[d] real alpha_std;
+  array[d] real beta_std;
+  real alpha_media;
+  real beta_media;
+}
+
+transformed parameters {
+  vector[N] prob_ac;
+  array[d] real alpha;
+  array[d] real beta;
+
+  for(k in 1:d){
+    alpha[k] = alpha_media + sigma_alpha * alpha_std[k];
+    beta[k] = beta_media + sigma_beta * beta_std[k];
+  }
+  
+  for(i in 1:N){
+    // parámetros para cada distrito
+    prob_ac[i] = inv_logit(alpha[distrito[i]] + beta[distrito[i]] * ur[i]);
+  }
+
+}
+
+model {
+  y ~ bernoulli(prob_ac);
+  alpha_std ~ normal(0, 1);
+  beta_std ~ normal(0, 1);
+  alpha_media ~ normal(0, 1);
+  beta_media ~ normal(0, 1);
+  // media normal
+  sigma_alpha ~ normal(0, 0.5);
+  sigma_beta ~ normal(0, 0.5);
+}
+
+generated quantities {
+  array[d, 2] real&lt;lower=0, upper = 1&gt; prop_uso;
+  array[d] real prop_uso_dif;
+  
+  for(k in 1:d){
+    // urbano
+    prop_uso[k, 1] = inv_logit(alpha[k] + beta[k] * 1);
+    // rural
+    prop_uso[k, 2] = inv_logit(alpha[k] + beta[k] * 0);
+    prop_uso_dif[k] = prop_uso[k, 1] - prop_uso[k, 2];
+  }
+  
+  
+}</code></pre>
+</div>
+</div>
+<p>Corremos el modelo:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># distritos están numerados</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">max</span>(bangladesh_tbl<span class="sc">$</span>district)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">nrow</span>(bangladesh_tbl)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>data_lista <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">N =</span> N, <span class="at">d =</span> d,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> bangladesh_tbl<span class="sc">$</span>use.contraception,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">distrito =</span> bangladesh_tbl<span class="sc">$</span>district,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">ur =</span> bangladesh_tbl<span class="sc">$</span>urban)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>ajuste_1 <span class="ot">&lt;-</span> mod_ur<span class="sc">$</span><span class="fu">sample</span>(<span class="at">data =</span> data_lista, <span class="at">init =</span> <span class="fl">0.1</span>, <span class="at">step_size =</span> <span class="fl">0.1</span>,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>                          <span class="at">chains =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Running MCMC with 3 sequential chains...
+
+Chain 1 Iteration:    1 / 2000 [  0%]  (Warmup) 
+Chain 1 Iteration:  100 / 2000 [  5%]  (Warmup) 
+Chain 1 Iteration:  200 / 2000 [ 10%]  (Warmup) 
+Chain 1 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 1 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 1 Iteration:  500 / 2000 [ 25%]  (Warmup) 
+Chain 1 Iteration:  600 / 2000 [ 30%]  (Warmup) 
+Chain 1 Iteration:  700 / 2000 [ 35%]  (Warmup) 
+Chain 1 Iteration:  800 / 2000 [ 40%]  (Warmup) 
+Chain 1 Iteration:  900 / 2000 [ 45%]  (Warmup) 
+Chain 1 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
+Chain 1 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
+Chain 1 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
+Chain 1 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
+Chain 1 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
+Chain 1 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
+Chain 1 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
+Chain 1 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 1 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
+Chain 1 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 1 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 1 Iteration: 2000 / 2000 [100%]  (Sampling) 
+Chain 1 finished in 5.7 seconds.
+Chain 2 Iteration:    1 / 2000 [  0%]  (Warmup) 
+Chain 2 Iteration:  100 / 2000 [  5%]  (Warmup) 
+Chain 2 Iteration:  200 / 2000 [ 10%]  (Warmup) 
+Chain 2 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 2 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 2 Iteration:  500 / 2000 [ 25%]  (Warmup) 
+Chain 2 Iteration:  600 / 2000 [ 30%]  (Warmup) 
+Chain 2 Iteration:  700 / 2000 [ 35%]  (Warmup) 
+Chain 2 Iteration:  800 / 2000 [ 40%]  (Warmup) 
+Chain 2 Iteration:  900 / 2000 [ 45%]  (Warmup) 
+Chain 2 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
+Chain 2 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
+Chain 2 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
+Chain 2 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
+Chain 2 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
+Chain 2 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
+Chain 2 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
+Chain 2 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 2 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
+Chain 2 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 2 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 2 Iteration: 2000 / 2000 [100%]  (Sampling) 
+Chain 2 finished in 5.3 seconds.
+Chain 3 Iteration:    1 / 2000 [  0%]  (Warmup) 
+Chain 3 Iteration:  100 / 2000 [  5%]  (Warmup) 
+Chain 3 Iteration:  200 / 2000 [ 10%]  (Warmup) 
+Chain 3 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 3 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 3 Iteration:  500 / 2000 [ 25%]  (Warmup) 
+Chain 3 Iteration:  600 / 2000 [ 30%]  (Warmup) 
+Chain 3 Iteration:  700 / 2000 [ 35%]  (Warmup) 
+Chain 3 Iteration:  800 / 2000 [ 40%]  (Warmup) 
+Chain 3 Iteration:  900 / 2000 [ 45%]  (Warmup) 
+Chain 3 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
+Chain 3 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
+Chain 3 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
+Chain 3 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
+Chain 3 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
+Chain 3 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
+Chain 3 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
+Chain 3 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 3 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
+Chain 3 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 3 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 3 Iteration: 2000 / 2000 [100%]  (Sampling) 
+Chain 3 finished in 5.3 seconds.
+
+All 3 chains finished successfully.
+Mean chain execution time: 5.4 seconds.
+Total execution time: 16.6 seconds.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ajuste_1<span class="sc">$</span><span class="fu">summary</span>(<span class="fu">c</span>(<span class="st">"alpha_media"</span>, <span class="st">"sigma_alpha"</span>, <span class="st">"beta_media"</span>, <span class="st">"sigma_beta"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 10
+  variable      mean median     sd    mad     q5    q95  rhat ess_bulk ess_tail
+  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+1 alpha_media -0.698 -0.698 0.0890 0.0920 -0.841 -0.555  1.00    1586.    1970.
+2 sigma_alpha  0.469  0.467 0.0858 0.0876  0.334  0.612  1.00    1045.    1656.
+3 beta_media   0.619  0.622 0.148  0.145   0.372  0.864  1.00    2161.    2086.
+4 sigma_beta   0.495  0.495 0.195  0.191   0.164  0.819  1.01     565.     655.</code></pre>
+</div>
+</div>
+<p><strong>Ojo</strong>: 1) es necesario hacer diagnósticos del modelo para checar que el ajuste es apropiado. En este ejemplo, no veremos esto. 2) Usualmente, es mejor modelar de manera multivariada los coeficientes alpha y beta. 3) beta_media puede interpretarse como el efecto promedio de urbanización sobre uso de anticonceptivos (en escala logit)</p>
+<p><strong>Pregunta 3.5</strong>: explica la parte de <em>generated quantities</em> del modelo. ¿Qué estamos haciendo en esa parte?</p>
+<p><strong>Respuesta</strong> Calcula la proporción de mujeres que usaron anticonceptivos por distrito y al final, estima el efecto a nivel distrito.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>props_uso_tbl <span class="ot">&lt;-</span> ajuste_1<span class="sc">$</span><span class="fu">draws</span>(<span class="st">"prop_uso_dif"</span>, <span class="at">format =</span> <span class="st">"df"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">contains</span>(<span class="st">"prop_uso"</span>), <span class="at">names_to =</span> <span class="st">"variable"</span>, <span class="at">values_to =</span> <span class="st">"prop"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="at">col =</span> variable, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"v"</span>, <span class="st">"distrito"</span>), </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">sep =</span> <span class="st">"[</span><span class="sc">\\</span><span class="st">[</span><span class="sc">\\</span><span class="st">]</span><span class="sc">\\</span><span class="st">,]"</span>, <span class="at">extra =</span> <span class="st">"drop"</span>, <span class="at">convert =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(distrito) <span class="sc">|&gt;</span> </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">prop_media =</span> <span class="fu">mean</span>(prop), <span class="at">q5 =</span> <span class="fu">quantile</span>(prop, <span class="fl">0.05</span>),</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">q95 =</span> <span class="fu">quantile</span>(prop, <span class="fl">0.95</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Dropping 'draws_df' class as required metadata was removed.</code></pre>
+</div>
+</div>
+<p>Podemos ver todas nuestras estimaciones para cada distrito y diferencia entre rural y urbano:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(props_uso_tbl, </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> distrito, <span class="at">y =</span> prop_media)) <span class="sc">+</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_linerange</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> q5, <span class="at">ymax =</span> q95)) <span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">colour =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="tarea-06_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><strong>Pregunta 4</strong>: ¿cuál es tu conclusión acerca del efecto causal de urbanización sobre el uso de anticonceptivos? Nota: podríamos resumir este efecto ponderando las estimaciones de cada distrito por su población de mujeres, por ejemplo.</p>
+<p><strong>Pregunta 5</strong>: explica por qué para calcular el efecto total causal de urbanización <em>no</em> debemos controlar por número de hijos (usa el diagrama de arriba).</p>
+<p><strong>Respuesta</strong> Porque bloquea un camino causal de urbanizacion a Ac</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grViz</span>(<span class="st">'</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="st">digraph {</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="st">  graph [ranksep = 0.2, rankdir = LR]</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="st">    node [shape=plaintext]</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="st">    D</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="st">    edge [minlen = 3]</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="st">    D -&gt; Ac</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="st">    D -&gt; Ur</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="st">    D -&gt; H</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="st">    Edad -&gt; Ac</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="st">    Ur -&gt; Ac</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="st">    Ur -&gt; H</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="st">    H -&gt; Ac</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="st">    Edad -&gt; H</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="st">}'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-3b8955a541661571f3de" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-3b8955a541661571f3de">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2, rankdir = LR]\n    node [shape=plaintext]\n    D\n    edge [minlen = 3]\n    D -> Ac\n    D -> Ur\n    D -> H\n    Edad -> Ac\n    Ur -> Ac\n    Ur -> H\n    H -> Ac\n    Edad -> H\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p><strong>Pregunta 6</strong>: Supón que quisieras calcular el efecto directo de Ur sobre Ac. ¿Sobre qué variables habría que condicionar adicionalmente para lograr esto? (usa nuestro diagrama causal) ¿Por qué no es suficiente condicionar sólo a número de hijos y distrito?</p>
+<p><strong>Respuesta</strong>: Condicionar a número de hijos no es buena idea porque bloqueamos un camino causal entre el tratamiento y la respuesta. Si solo condicionamos a Distrito, nuestra estimación estaría sobre estimada, pués contemplaría el efecto de la edad.</p>
+<p>Por lo tanto, debemos condicionar por Distrito y Edad.</p>
+<p><strong>Pregunta 7</strong>: Supongamos que en la crítica de nuestro DAG, consideramos incluir el efecto de tipo de familia (no observado) sobre Anticonceptivos y número de hijos, y tenemos el diagrama de abajo. ¿Cambiaría en algo tu aproximación a la estimación del efecto de urbanización sobre uso de anticonceptivos?</p>
+<p><strong>Respuesta</strong> No.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grViz</span>(<span class="st">'</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="st">digraph {</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="st">  graph [ranksep = 0.2, rankdir = LR]</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="st">    node [shape= circle]</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="st">    Fam</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="st">    node [shape=plaintext]</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="st">    edge [minlen = 3]</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="st">    D -&gt; Ac</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="st">    D -&gt; Ur</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="st">    D -&gt; H</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="st">    Edad -&gt; Ac</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="st">    Ur -&gt; Ac</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="st">    Ur -&gt; H</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="st">    H -&gt; Ac</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="st">    Edad -&gt; H</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="st">    Fam -&gt; H</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="st">    Fam -&gt; Ac</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="st">{rank=same; Edad; Ur}</span></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a><span class="st">{rank=same; D; Ac}</span></span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a><span class="st">}'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-ef88a67613f2ad19904e" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-ef88a67613f2ad19904e">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2, rankdir = LR]\n    node [shape= circle]\n    Fam\n    node [shape=plaintext]\n    edge [minlen = 3]\n    D -> Ac\n    D -> Ur\n    D -> H\n    Edad -> Ac\n    Ur -> Ac\n    Ur -> H\n    H -> Ac\n    Edad -> H\n    Fam -> H\n    Fam -> Ac\n{rank=same; Edad; Ur}\n{rank=same; D; Ac}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p><strong>Pregunta 8</strong>: Bajo este nuevo diagrama, ¿cuál es la dificultad que encontramos si quisiéramos identificar el efecto directo de urbanización sobre uso de anticonceptivos? Que no podemos controlar por famlia, que influye directamente en el uso de métodos anticonceptivos.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
