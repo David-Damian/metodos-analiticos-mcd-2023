@@ -315,8 +315,8 @@ que beben alcohol moderadamente es mejor que los que no beben alcohol. Sin embar
 no podemos concluir que beber alcohol moderadamente ayuda en la salud. La razón
 puede estar en que las personas que padecen enfermedades de distintos tipos
 evitan el alcohol, y en ese caso el término de la derecha 
-$E[Y^0|T=1] - E[Y^0|Y=0]$ fuera muy grande, lo cual haría nuestro estimador 
-ingenuo $\delta_{ing}$ podría ser muy grande, aún cuando $E[Y^1|Y=1] - E[Y^0|Y=1]$ fuera cercano a cero
+$E[Y^0|T=1] - E[Y^0|T=0]$ fuera muy grande, lo cual haría nuestro estimador 
+ingenuo $\delta_{ing}$ podría ser muy grande, aún cuando $E[Y^1|T=1] - E[Y^0|T=1]$ fuera cercano a cero
 si $Y=1$ es beber moderadamente.
 
 **Ejercicio**: describe esta situación mediante un DAG.
@@ -361,7 +361,7 @@ son más o menos propensas a tener mejoras o desmejoras.
 
 
 Por ejemplo, supongamos que estamos comparando el efecto de la educación
-en la abilidad mental de personas adultas, y el tratamiento es ir a la universidad.
+en la habilidad mental de personas adultas, y el tratamiento es ir a la universidad.
 Entonces, si comparamos habilidad mental de personas que van a la universidad
 vs los que no van a la universidad, tenemos dos posibles fuentes de confusión:
 
