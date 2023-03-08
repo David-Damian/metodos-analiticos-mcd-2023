@@ -1190,7 +1190,7 @@ ggplot(sims_colisionador, aes(x = x, y = y, group = z, colour = factor(z))) +
   geom_point() + geom_smooth(method = "lm", se = FALSE) 
 ```
 
-Y vemos que condicional a $Z$, $X$ y $Y$ no son dependientes.
+Y vemos que condicional a $Z$, $X$ y $Y$ son dependientes.
 
 ### Razonamiento de descendientes de efecto común
 
