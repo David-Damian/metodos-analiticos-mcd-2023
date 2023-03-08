@@ -97,7 +97,7 @@ Consideraremos los diagramas de @Pearl2022gb que se refieren a una situación ex
 ## Controles buenos o neutros
 
 Consideramos el siguiente diagrama: en este caso, $Z$ causa variación
-en $Y$. Controlar por $Y$ puede mejorar la precisión de nuestras estimaciones causales, sin abrir ningún camino no causal (Modelo 8
+en $Y$. Controlar por $Z$ puede mejorar la precisión de nuestras estimaciones causales, sin abrir ningún camino no causal (Modelo 8
 en @Pearl2022gb, [A Crash Course in Good and Bad Controls](https://ftp.cs.ucla.edu/pub/stat_ser/r493.pdf)) :
 
 ```{r}
